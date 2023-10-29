@@ -1,0 +1,7 @@
+## Interface: 10900
+## Title: Lore v6.0
+## Notes: Create and use custom-defined languages
+## OptionalDeps: myAddOns
+## Dependencies:
+## SavedVariables: Lore_Language, Lore_CurrLanguage, Lore_Interpreter, Lore_Autotrans, Lore_To, Lore_Left, Lore_Right, Lore_Self, Lore_Visible, Lore_Tabletposition, Lore_Stutterfrequency, Lore_Inform, Lore_Alpha, Lore_BorderAlpha, Lore_Locked, Lore_Cycle, Lore_Skill, Lore_Users, Lore_Screen
+Lore.xml

@@ -1,0 +1,102 @@
+--- Lore
+AddingLanguages ---
+
+AUTHOR: Rook on Earthen Ring (Alliance)
+
+
+DIALECTS.LUA:
+	Make sure you have the dialects.lua file in your Lore directory. This file is not packaged with the AddOn if you downloaded it from Curse Gaming; it is available for download on the same page as Lore, however. dialects.lua contains all predefined languages and is the site for any additional languages you choose to add yourself. It is left out of the main Lore download to prevent overwriting your additions/modifications each time Lore is updated.
+	You can download dialects.lua seperately here:
+	http://www.curse-gaming.com/mod.php?downid=3634
+
+
+THE FORMAT:
+-LANGUAGE
+	Languages are stored in a table called Lore_Archive; each language is indexed by its name. This means that to access or define English, you will need to use Lore_Archive["English"].
+	The format is as follows:
+
+Lore_Archive["Your Language Name"] = {
+
+	[1] = { "a", "b" },
+
+	[2] = { "ab", "ac", "ad" }
+
+};
+
+
+-ALTERNATE TITLE
+	Languages can be given any number of alternate titles. This allows you to use /lore setl your language name or /lore setl additional language name in-game to specify your current language. Note also that the specified language title is the one that appears in your speech tag.
+	The format is as follows:
+
+Lore_Archive["Additional Language Name"] = Lore_Archive["Your Language Name"];
+
+
+-KEYWORDS
+	Languages can have a specified list of keywords; these are words you have designated to not be translated by Lore. This can be used for anything, from important character names and locations to the language names themselves.
+	Note that you cannot include non-alphabetical characters in keywords, as words are split up by any punctuation or formating marks. This means that when you type quel'thalas, Lore actually sees the words quel and thalas independantly, so defining a keyword "quel'thalas" would be useless.
+	The format is as follows:
+
+Lore_Archive["Your Language Name"]["keywords"] = { "rook", "party", lore" };
+
+
+-ALTWORDS
+	Languages can have a specified list of altwords; these are words you have given specific translations for Lore to change them into. This can be used especially for nouns like class names, monster types and the like.
+	As with keywords, you cannot include non-alphabetical characters in altwords themselves; however, there is no such restriction on the *resulting* word. You can legally declare an altword "curse" that is allocated to translate into "ui.wow".
+	Note that while your new words can be any length, making them longer than the old word they are translated from means that full capitalization cannot be applied; characters after the length of the old word will remain lower-case, as there is nothing for Lore to use as a standard for their capitalization.
+	The format is as follows:
+
+Lore_Archive["Your Language Name"]["altwords"] = {
+
+	["old"] = { "rook", "curse", "lore" },
+
+	["new"] = { "me", "ui.wow", "huza" }
+
+};
+
+
+
+-TRUE DIALECTS
+	Since Lore version 4.3 it is also possible to create a Dialect rather than Language. In contradiction to Languages,
+	all it does is translating ALTWORDS and leaving other words as you type them. 
+	You can create the dialect as follows:
+
+Lore_Archive["*Dialect's Name"] = {
+};
+
+-- Altwords: Common Dialect
+Lore_Archive["*Dialect's Name"]["altwords"] = { 
+
+	["old"] = { "you", "your", "you're", "my", "i" },
+
+	["new"] = { "ye", "yer", "ye're", "me", "me" }
+
+};
+
+
+	Note, that the name of each Dialect has to start with an asterisk (*). This will tell Lore that the specified
+	language is a dialect and that it should not translate non-dialect words. An example of a dialect name is '*Scottish'.
+
+	To activate the language you can type in-game: '/language *Scottish'
+	To add/remove it from the tablet you can type: '/lore tablet *Scottish'
+
+	Also on the tablet you will see the asterisk (this to indicate that it is a dialect you are using, rather than a
+	language. Translations are NOT sent out with dialects, they appear to everyone as-is.
+
+	Dialects also appear to everyone without a language tag. Because it's not a language, just a dialect.
+
+
+
+
+NOTES:
+
+ <> "Your Language Name" MUST be capitalized as shown: when checking to see if a language exists, the string that is read in will first be recapitalized with the first letter of each word uppercase and all subsequent letters in each word lowercase.
+
+ <> Add one-letter words to [1] = {}, add two-letter words to [2] = {}, etc. To add additional word sizes, continue adding lines [x] = {}. Note that there is a comma following every such line except the last.
+
+ <> You can define as many word sizes and as many words per size as you want; the same holds true for the number of keywords and altwords you can create. NOTE: Try to prevent the use of 2 or 4 words, for some mathematical reason Lore always takes the first choice if that is the case.
+
+ <> To use your language, add the format shown above to the bottom of dialects.lua and complete it as specified for adding words and word sizes.
+
+ <> You can add as much as you like to the existing languages!
+
+ <> See dialects.lua and the implemented language for a few examples of the formatting.

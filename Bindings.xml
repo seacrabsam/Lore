@@ -1,0 +1,32 @@
+<Bindings>
+	<Binding name="Add/Remove Interpreter" description="Lore Related" header="LORE">
+		Lore_BindingInterpreterAdd();
+	</Binding>
+	<Binding name="Cycle Language" description="Lore Related" header="LORE">
+		Lore_BindingAdvanceCycle();
+	</Binding>
+	<Binding name="Toggle Screening" description="Lore Related" header="LORE">
+		Lore_BindingScreening();
+	</Binding>
+	<Binding name="Reset" description="Lore Related" header="LORE">
+		Lore_BindingReset();
+	</Binding>
+	<Binding name="Effect: Stuttering" description="Lore Related" header="LORE">
+		Lore_BindingStutter();
+	</Binding>
+	<Binding name="Effect: Hissing" description="Lore Related" header="LORE">
+		Lore_BindingHiss();
+	</Binding>
+	<Binding name="Effect: Growling" description="Lore Related" header="LORE">
+		Lore_BindingGrowl();
+	</Binding>
+	<Binding name="Effect: Lisping" description="Lore Related" header="LORE">
+		Lore_BindingLisp();
+	</Binding>
+	<Binding name="Effect: Word Cutting" description="Lore Related" header="LORE">
+		Lore_BindingCut();
+	</Binding>
+
+</Bindings>
+
+

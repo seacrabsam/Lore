@@ -1,0 +1,85 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
+	<Script file="Lore.lua"/>
+	<Script file="dialects.lua"/>
+	<Script file="defaults.lua"/>
+
+	<Frame name="Lore_Tablet" enableMouse="true" movable="true" hidden="false" parent="UIParent" frameStrata="BACKGROUND">
+		<Size>
+			<AbsDimension x="125" y="20"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<FontString name="LoreDialect" inherits="GameFontNormal" wraponspaces="true">
+					<Size>
+						<AbsDimension x="110" y="15"/>
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="3" right="3" top="3" bottom="3"/>
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32"/>
+			</TileSize>
+			<EdgeSize> 
+				<AbsValue val="12"/>
+			</EdgeSize>
+		</Backdrop>
+		<Scripts>
+			<OnLoad>
+				this:RegisterEvent( "VARIABLES_LOADED" );
+			</OnLoad>
+			<OnEvent>
+				if (event == "VARIABLES_LOADED") then
+					Lore_Tablet_OnLoad();
+				end
+				Lore_Tablet_OnEvent(event);
+			</OnEvent>
+				<OnEnter>
+					Lore_OnEnter();
+				</OnEnter>
+				<OnLeave>
+					GameTooltip:Hide();
+					LoreDialect:SetTextColor( 0.2, 0.7, 1.0, 1 );
+				</OnLeave>
+			<OnMouseUp>
+				Lore_Tablet_OnMouseUp(arg1);
+			</OnMouseUp>
+			<OnMouseDown>
+				Lore_Tablet_OnMouseDown(arg1);
+			</OnMouseDown>
+		</Scripts>
+	</Frame>
+
+	<Frame name="Lore_Core" hidden="false">
+		<Scripts>
+			<OnLoad>
+				Lore_Defaults();
+				this:RegisterEvent("VARIABLES_LOADED");
+				this:RegisterEvent("PLAYER_ENTERING_WORLD");
+			</OnLoad>
+			<OnEvent>
+				if (event == "VARIABLES_LOADED") then
+					Lore_Initialize();
+					LanguageCommand_OnLoad();
+				end
+				if (event == "PLAYER_ENTERING_WORLD") then
+					Lore_GetUser();
+				end
+			</OnEvent>
+		</Scripts>
+	</Frame>
+
+</Ui>
