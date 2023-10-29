@@ -8,17 +8,6 @@ ORIGINAL AUTHOR: Rook on Earthen Ring (Alliance)
 FOLLOWUP AUTHOR: Liise on Argent Dawn (Alliance)
 ADDITIONAL DIALECTS FOR TURTLE WOW: Maxie
 
-/##############################################################################\
-#/----------------------------------------------------------------------------\#
-#- NOTE: To access the predefined languages already included in Lore you MUST -#
-#- DOWNLOAD dialects.lua  and extract it to the Lore directory if the version -#
-#- you downloaded does not already include it.                                -#
-#-                                                                            -#
-#- This file is packaged seperately to prevent your modifications/additions   -#
-#- from being overwritten each time you update Lore.                          -#
-#\----------------------------------------------------------------------------/#
-\##############################################################################/
-
 -------------------------------------------------------------------------------------------------------------------------
 
 Index
@@ -574,7 +563,7 @@ Index
 
 	 <> = and $ typed straight in front of a word leaves the word untranslated. Example: "I go to =Stormwind" -> Stormwind is not translated. (Courtesy of LuckyArts)
 
-	 <> German characters (Ö,Ä,Ü, ß) will now pass through alike regular alphabet letters. (Courtesy of LuckyArts)
+	 <> German characters (Ã–,Ã„,Ãœ, ÃŸ) will now pass through alike regular alphabet letters. (Courtesy of LuckyArts)
 
 
 	Lore v4.1 ---
